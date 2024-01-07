@@ -1,0 +1,7 @@
+DEBUG = <Boolean>
+ALLOWED_HOSTS = <List>
+
+DB_NAME = <String>
+DB_HOST = <String>
+DB_USER = <String>
+DB_PASSWORD = <String>
