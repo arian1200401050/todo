@@ -1,5 +1,5 @@
 # project backlog
-/backlog
+/backlog/*.odg
 
 # virtual environment
 /env

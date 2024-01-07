@@ -1,0 +1,11 @@
+1. List all existing boards.
+2. Add a new baord.
+3. Change title of an existing board.
+4. Delete an existing board.
+5. List all todos of a board.
+6. List all done todos of a board.
+7. Add a new todo to a board.
+8. Change title of an existing todo.
+9. Change status of an existing todo.
+10. Delete an existing todo.
+
