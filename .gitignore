@@ -1,0 +1,15 @@
+# project backlog
+/backlog
+
+# virtual environment
+/env
+
+# cache
+__pycache__
+.pyc
+
+# security
+.local_settings.py
+
+# copy files
+/src_copy
