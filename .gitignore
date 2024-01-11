@@ -9,7 +9,7 @@ __pycache__
 .pyc
 
 # security
-.local_settings.py
+local_settings.py
 
 # copy files
 /src_copy
