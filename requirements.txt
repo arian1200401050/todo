@@ -4,3 +4,6 @@ djangorestframework==3.14.0
 
 # database
 psycopg2-binary==2.9.9
+
+# timezone
+tzdata
