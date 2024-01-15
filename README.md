@@ -1,5 +1,7 @@
 ## A "To Do" Application
 
+A RESTFul api wrote in Django framework.
+
 You can add 'boards' and inside a board add some 'to do'.
 Each 'to do' has a status that is done or not.
 
@@ -7,6 +9,7 @@ Each 'to do' has a status that is done or not.
 ```
 .
 ├── .gitignore
+├── Dockerfile
 ├── requirements.txt
 ├── src
     ├── conf
@@ -17,16 +20,14 @@ Each 'to do' has a status that is done or not.
 
 ## Running application
 
-Add database configuration in ("src/conf/local_settings.py") file.
-Then change working directory to "src".
+Before go on production create local_settings.py file in [src/conf/](src/conf/) directory and add 'secret key' and 'allowed hosts' and 'database configuration' to it.
+
+Then the models must be migrated.
 ```
-cd src
-```
-Then run the server.
-```
-python manage.py runserver
+docker run /usr/local/bin/python src/manage.py migrate
 ```
 
-After the server is running, navigate to `http://localhost:8000` in your web browser:
+## API
 
-Stop server using Ctrl + C in your terminal.      
+To see a list of api URLs, visit the root domain of the host on which application is running.
+
