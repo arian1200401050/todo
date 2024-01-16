@@ -8,13 +8,24 @@ Each 'to do' has a status that is done or not.
 ### Project structure:
 ```
 .
-├── .gitignore
 ├── web
-    ├── conf
     ├── boards
-    ├── manage.py
-    ├── requirements.txt  
-    └── Dockerfile
+       ├── models.py
+       ├── serializers.py
+       ├── tests.py
+       ├── urls.py
+       └── views.py
+    ├── conf
+       ├── settings_development.py
+       ├── settings_production.py
+       ├── settings.py
+       ├── urls.py
+       └── wsgi.py
+    ├── Dockerfile
+    ├── manage.py
+    └── requirements.txt  
+├── .gitignore
+└── docker-compose.yml
 
 ```
 
