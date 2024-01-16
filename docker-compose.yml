@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  web:
+    restart: always
+    build: web
+    ports: 
+      - "0.0.0.0:8000:8000"
+    links:
+      - postgres:postgres
+    volumes:
+      - web-django:/app/
+    env_file: .env
+    environment:
+      DEBUG: 'true'
+    command: /usr/local/bin/gunicorn conf.wsgi -w 2 -b :8000
+
+  postgres:
+    restart: always
+    image: postgres:12.17-alpine3.19
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+    env_file: .env
+
+volumes:
+  web-django:
+  pgdata:
