@@ -7,4 +7,4 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD [ "/usr/local/bin/python", "manage.py",  "runserver", "0.0.0.0:8000" ]
+CMD [ "/usr/local/bin/gunicorn", "conf.wsgi", "-w 2", "-b :8000" ]
