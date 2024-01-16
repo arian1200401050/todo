@@ -27,7 +27,12 @@ Then the models must be migrated.
 docker run /usr/local/bin/python src/manage.py migrate
 ```
 
+## DOCKER 
+
+```
+docker pull arian1200401050/todo
+```
+
 ## API
 
 To see a list of api URLs, visit the root domain of the host on which application is running.
-
