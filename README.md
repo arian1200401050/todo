@@ -9,18 +9,18 @@ Each 'to do' has a status that is done or not.
 ```
 .
 ├── .gitignore
-├── Dockerfile
-├── requirements.txt
-├── src
+├── web
     ├── conf
     ├── boards
-    └── manage.py
+    ├── manage.py
+    ├── requirements.txt  
+    └── Dockerfile
 
 ```
 
 ## Running application
 
-Before go on production create local_settings.py file in [src/conf/](src/conf/) directory and add 'secret key' and 'allowed hosts' and 'database configuration' to it.
+Before go on production create local_settings.py file in [web/conf/](web/conf/) directory and add 'secret key' and 'allowed hosts' and 'database configuration' to it.
 
 Then the models must be migrated.
 ```
