@@ -1,16 +1,16 @@
-# project backlog
-/backlog/*.odg
-
 # virtual environment
-/env
-.env
+/env/
+/.env
 
 # cache
 __pycache__
 .pyc
 
+# project backlog
+/backlog/*.odg
+
 # security
 local_settings.py
 
-# copy files
-/src_copy
+# nginx
+/nginx/
