@@ -25,7 +25,8 @@ Each 'to do' has a status that is done or not.
     ├── manage.py
     └── requirements.txt  
 ├── .gitignore
-└── docker-compose.yml
+├── docker-compose.yml
+└── production.yml
 
 ```
 
