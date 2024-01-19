@@ -32,17 +32,30 @@ Each 'to do' has a status that is done or not.
 
 ## Running application
 
-Before go on production create local_settings.py file in [web/conf/](web/conf/) directory and add 'secret key' and 'allowed hosts' and 'database configuration' to it.
-
-Then the models must be migrated.
-```
-docker run /usr/local/bin/python src/manage.py migrate
-```
-
-## DOCKER 
+First of all clone the project using git.
 
 ```
-docker pull arian1200401050/todo
+git clone https://github.com/arian1200401050/todo
+```
+
+Then change the working directory to root of project. 
+
+```
+cd todo
+```
+
+Then before go on procution, create the .env file at the directory level of docker-compose.yml file and set the IS_PRODUCTION=1 and set the SECRET_KEY, DB_NAME, DB_HOST, DB_USER and DB_PASSWORD in it.
+
+Then run multi-container application using docker compose.
+
+```
+docker compose up --build -d
+```
+
+Then the last thing before we can use the app is that the models need to be migrated.
+
+```
+docker compose exec web /usr/local/bin/python manage.py migrate
 ```
 
 ## API
