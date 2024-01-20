@@ -1,5 +1,5 @@
 # virtual environment
-/env/
+env/
 
 # environment variables
 .env
@@ -10,3 +10,6 @@ __pycache__
 
 # project backlog
 /backlog/*.odg
+
+# static files
+static/

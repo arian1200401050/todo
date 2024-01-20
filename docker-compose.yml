@@ -4,24 +4,33 @@ services:
   web:
     restart: always
     build: web
-    ports: 
-      - "0.0.0.0:8000:8000"
-    links:
-      - postgres:postgres
+    command: /usr/local/bin/gunicorn conf.wsgi -w 2 -b :8000
     volumes:
       - web-django:/app/
-    env_file: .env
-    environment:
-      DEBUG: True
-    command: /usr/local/bin/gunicorn conf.wsgi -w 2 -b :8000
+      - web-static:/app/static/
+    depends_on:
+      - postgres
+
+  nginx:
+    restart: always
+    build: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - web-static:/www/static/
+    depends_on:
+      - web
 
   postgres:
     restart: always
     image: postgres:12.17-alpine3.19
     volumes:
       - pgdata:/var/lib/postgresql/data/
-    env_file: .env
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=todo
 
 volumes:
   web-django:
+  web-static:
   pgdata:
