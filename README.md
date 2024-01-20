@@ -8,6 +8,9 @@ Each 'to do' has a status that is done or not.
 ### Project structure:
 ```
 .
+├── nginx
+    ├── Dockerfile
+    └── nginx.conf
 ├── web
     ├── boards
        ├── models.py
@@ -44,18 +47,24 @@ Then change the working directory to root of project.
 cd todo
 ```
 
-Then before go on procution, create the .env file at the directory level of docker-compose.yml file and set the IS_PRODUCTION=1 and set the SECRET_KEY, DB_NAME, DB_HOST, DB_USER and DB_PASSWORD in it.
+Then before go on procution, create the .env file at the directory level of production.yml file and set the IS_PRODUCTION=1 and set the SECRET_KEY, DB_NAME, DB_HOST, DB_USER and DB_PASSWORD in it.
 
 Then run multi-container application using docker compose.
 
 ```
-docker compose up --build -d
+docker compose -f production.yml up --build -d
+```
+
+Then collect the static files to serve with nginx instead gunicorn server to make the app load faster.
+
+```
+docker compose -f production.yml exec web /usr/local/bin/python manage.py collectstatic
 ```
 
 Then the last thing before we can use the app is that the models need to be migrated.
 
 ```
-docker compose exec web /usr/local/bin/python manage.py migrate
+docker compose -f production.yml exec web /usr/local/bin/python manage.py migrate
 ```
 
 ## API
